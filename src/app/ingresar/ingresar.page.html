@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary"> 
+    <ion-title>INGRESAR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid fixed><!--inicio de la pantalla-->
+      <ion-row>
+        <ion-col size="12">
+            <img src="assets/login.jpg"
+            id="circulo">
+        </ion-col> 
+      </ion-row>
+     
+<br>
+      <ion-row><!-- 1 nombre-->
+        <ion-col size="12">
+            <ion-item>
+              <ion-icon name="mail" slot="start" color="primary"></ion-icon>
+             
+              <ion-input  type="text" [(ngModel)]="email" placeholder="Correo" ></ion-input>
+            </ion-item>
+            
+        </ion-col>
+        <ion-col size="2"></ion-col>
+      </ion-row>
+    
+      <ion-row><!-- 2 apellidos-->
+        <ion-col size="12">
+            <ion-item>
+              <ion-icon name="key" slot="start" color="primary"></ion-icon>
+             
+              <ion-input  type="password" [(ngModel)]="password" placeholder="Contraseña"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="2"></ion-col> 
+      </ion-row>
+      <br>
+      
+      
+          <ion-row>
+              <ion-col size="12">
+              
+                  <ion-button (click)="onSubmitLogin()" expand="full" >Ingresar</ion-button>
+                  
+                </ion-col>
+                <ion-col size="12">
+              
+                    <p text-center expand="full"  routerLink="/loginn">Registrarse</p>
+              
+                  </ion-col>
+            </ion-row> 
+    </ion-grid>
+</ion-content>  
+

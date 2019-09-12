@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>
+      CASA HOGAR
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content (ionViewCanLeave)="buscar($event)">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <h1 id="centro">Catalogo</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+    
+    <ion-col size="12">
+        <ion-searchbar placeholder="Busca por edad, raza o genero. " (ionChange)="buscarperro($event)"></ion-searchbar>
+    </ion-col>
+    </ion-row>
+  </ion-grid> 
+
+  <ion-card *ngFor="let animal of catalogo | filtroc:eventoNombreID | filtrob:palabra" >
+      <ion-card-header id="cabecera" >
+          <ion-card-title id="letra-blanca">{{animal.nombre}}</ion-card-title>
+        
+      </ion-card-header>
+      <ion-card-content>
+        <img [src]="animal.foto" button [routerLink]="['/informacion-a',animal.id]">
+        <ion-grid>
+            <ion-row>
+            <ion-col size="4" id="centrado">
+            <ion-img src="assets/favorito.png" id="icono" (click)="favoritoperro()"></ion-img>
+          
+            </ion-col>
+            <ion-col size="4" id="centrado">
+            <ion-img src="assets/compartir.png" id="icono" (click)="compartirperro()"></ion-img>
+            </ion-col>
+            <ion-col size="4" id="centrado" >
+            <ion-img src="assets/apadrinar.png" id="icono" button [routerLink]="['/apadrinar',eventoNombreID]"></ion-img>
+            </ion-col>
+            </ion-row>
+        </ion-grid> 
+      </ion-card-content>
+    </ion-card>
+    
+</ion-content>

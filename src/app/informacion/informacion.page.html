@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="selugar"></ion-back-button>
+          
+        </ion-buttons>
+    <ion-title>USUARIO</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid fixed><!--inicio de la pantalla-->
+      <ion-row>
+        <ion-col size="12">
+            <img [src]="user.foto" id="circulo">
+        </ion-col> 
+      </ion-row>
+     
+<br>
+      <ion-row><!-- 1 nombre-->
+        <ion-col size="12">
+            <ion-item>
+              <ion-icon name="person" slot="start" color="primary"></ion-icon>
+             
+              <ion-input  type="text" [(ngModel)]="user.nombre" placeholder="Nombre"></ion-input>
+            </ion-item>
+            
+        </ion-col>
+        <ion-col size="2"></ion-col>
+      </ion-row>
+    
+      <ion-row><!-- 2 apellidos-->
+        <ion-col size="12">
+            <ion-item>
+              <ion-icon name="person" slot="start" color="primary"></ion-icon>
+             
+              <ion-input  type="text" [(ngModel)]="user.apellidos" placeholder="Apellidos"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="2"></ion-col> 
+      </ion-row>
+      <br>
+      <ion-row><!-- 2 domicilio-->
+        <ion-col size="12">
+            <ion-item>
+              <ion-icon name="home" slot="start" color="primary"></ion-icon>
+             
+              <ion-input  type="text" [(ngModel)]="user.domicilio" placeholder="Domicilio"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="2"></ion-col> 
+      </ion-row>
+      <ion-row><!-- 2 telefono-->
+        <ion-col size="12">
+            <ion-item>
+              <ion-icon name="call" slot="start" color="primary"></ion-icon>
+             
+              <ion-input  type="text" [(ngModel)]="user.telefono" placeholder="Telefono"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="2"></ion-col> 
+      </ion-row>
+          
+          <ion-row>
+              <ion-col size="12">
+              
+                  <ion-button (click)="saveDataUser()" expand="full">Guardar</ion-button>
+                  <br>
+                  <ion-button (click)="Onlogout()" expand="full">cerrar sesion</ion-button>
+            
+                </ion-col>
+            </ion-row> 
+    </ion-grid>
+</ion-content>

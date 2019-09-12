@@ -1,0 +1,109 @@
+
+<ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="selected">
+         
+      <ion-segment-button value="alimento">
+           <ion-label>Alimento</ion-label>
+         </ion-segment-button>
+ 
+         <ion-segment-button value="accesorios">
+             <ion-label>Accesorio</ion-label> 
+           </ion-segment-button>
+       </ion-segment> 
+   
+ </ion-toolbar>
+<ion-content>
+  <!--Inicio del div que contendra los respectivos segmentos a seleccionar-->
+  <div [ngSwitch]="selected">
+
+      <!--Inicio del contenido del primer segmento-->
+      <div *ngSwitchCase="'alimento'">
+      
+       <ion-list>
+       <ion-row> 
+    
+    
+        <ion-col size="6">
+          <ion-card *ngFor="let tienda of tiendas" [routerLink]="['/infoproducto', tienda.id]">
+              <ion-img img [src]="tienda.imagen" id="imagenes"></ion-img>
+             
+             <ion-card-header>{{tienda.nombre}}</ion-card-header> 
+             <ion-card-title >{{tienda.precio}}</ion-card-title>
+           </ion-card>
+      </ion-col>
+      <ion-col size="6">
+          <ion-card *ngFor="let tiendados of tiendados" [routerLink]="['/infoproducto', tiendados.id]">
+              <ion-img img [src]="tiendados.imagen" id="imagenes"></ion-img>
+             
+             <ion-card-header>{{tiendados.nombre}}</ion-card-header> 
+             <ion-card-title >{{tiendados.precio}}</ion-card-title>
+           </ion-card>
+      </ion-col>
+      </ion-row>
+        
+      </ion-list>
+      </div>
+      <!--Fin del contenido del primer segmento-->
+   
+      <!--Inicio del contenido del segundo segmento-->
+      <div *ngSwitchCase="'accesorios'">
+      
+          <ion-grid>
+          <ion-row> 
+
+              <ion-col size="6">
+                  <ion-card *ngFor="let ropa of tiendasropa" [routerLink]="['/tiendaropainfo', ropa.id]">
+                      <ion-img img [src]="ropa.imagen" id="imagenes"></ion-img>
+                     
+                     <ion-card-header>{{ropa.nombre}}</ion-card-header> 
+                     <ion-card-title >{{ropa.precio}}</ion-card-title>
+                   </ion-card>
+              </ion-col>
+
+
+       <ion-col  size="6">
+         <ion-card *ngFor="let  ropados of tiendasropados">
+           <ion-img  [src]="ropados.imagen"></ion-img>
+           <ion-card-header>{{ropados.nombre}}</ion-card-header> 
+             <ion-card-title >{{ropados.precio}}</ion-card-title>
+         </ion-card>
+       </ion-col>
+            
+              
+        
+            
+         </ion-row>
+           
+        </ion-grid>
+         </div>
+     
+    </div>
+  
+
+  <!-- <ion-row> 
+    
+    
+        <ion-col size="6">
+          <ion-card *ngFor="let tienda of tiendas" [routerLink]="['/infoproducto', tienda.id]">
+              <ion-img img [src]="tienda.imagen" id="imagenes"></ion-img>
+             
+             <ion-card-header>{{tienda.nombre}}</ion-card-header> 
+             <ion-card-title >{{tienda.precio}}</ion-card-title>
+           </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card *ngFor="let ropa of tiendasropa" [routerLink]="['/tiendaropainfo', ropa.id]">
+            <ion-img img [src]="ropa.imagen" id="imagenes"></ion-img>
+           
+           <ion-card-header>{{ropa.nombre}}</ion-card-header> 
+           <ion-card-title >{{ropa.precio}}</ion-card-title>
+         </ion-card>
+    </ion-col> 
+
+ 
+  </ion-row> -->
+
+
+
+</ion-content>

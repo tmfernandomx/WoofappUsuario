@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">
+      <ion-button (click)="toggleMenu()">  
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons> --> 
+    <ion-buttons slot="start">
+        <ion-menu-button color="light"
+        menu="primerMenu">
+    
+        </ion-menu-button>
+    </ion-buttons>
+    <ion-title>UBICACIÓN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <ion-searchbar placeholder="Busca tu estado o cuidad" (ionChange)="buscar($event)"></ion-searchbar>
+      <ion-list>
+        <ion-item color="light" *ngFor="let fundd of fundacion | filtro:textoBuscar"  button [routerLink]="['/home',fundd.nombre]">
+          <ion-avatar slot="start">
+            <ion-img [src]="fundd.logo"></ion-img>
+          </ion-avatar>
+          <ion-label>
+            <h2><b>{{fundd.nombre}}</b></h2>
+            <p>{{fundd.municipio}}, {{fundd.estado}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <br>
+
+
+</ion-content>
