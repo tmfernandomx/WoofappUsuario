@@ -17,6 +17,9 @@ import { AngularFireAuthModule} from '@angular/fire/auth';
 import { PipesModule } from './pipes/pipes.module';
 
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { ComponentsModule } from './components/components.module';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +28,9 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
      AppRoutingModule,
      PipesModule,
      AngularFireModule.initializeApp(environment.firebaseConfig),
-     AngularFirestoreModule, AngularFireAuthModule
+     AngularFirestoreModule, AngularFireAuthModule,
+     ComponentsModule,
+    
     ],
   providers: [
     SocialSharing,

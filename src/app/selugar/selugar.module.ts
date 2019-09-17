@@ -8,6 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { SelugarPage } from './selugar.page';
+import { ComponentsModule } from '../components/components.module';
 
 const routes: Routes = [
   {
@@ -22,7 +23,9 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    PipesModule
+    PipesModule,
+    ComponentsModule
+   
   ],
   declarations: [SelugarPage]
 })

@@ -6,7 +6,7 @@ import { HomePage } from './../home/home.page';
 import { FundacionesService, fundd } from './../servicios/fundaciones.service';
 import { AuthService } from '../servicios/auth.service';
 
-import { NavController } from '@ionic/angular';
+import { NavController, MenuController } from '@ionic/angular';
 
 
 
@@ -25,6 +25,7 @@ export class SelugarPage implements OnInit {
   constructor(public authservice: AuthService, public fundacionesservice : FundacionesService, public navCtrl: NavController,
     private datoservice: DatosfService, 
     private activateRoute: ActivatedRoute,
+    private menuCtrl:MenuController
 
     ) { 
 
@@ -48,6 +49,8 @@ export class SelugarPage implements OnInit {
 
      this.datoservice.getRegistros().subscribe(res => this.fundaciones=res)
   }
-
+toggleMenu(){
+this.menuCtrl.toggle();
+}
  
 }
