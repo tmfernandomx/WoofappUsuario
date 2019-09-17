@@ -30,7 +30,6 @@ import { ComponentsModule } from './components/components.module';
      AngularFireModule.initializeApp(environment.firebaseConfig),
      AngularFirestoreModule, AngularFireAuthModule,
      ComponentsModule,
-    
     ],
   providers: [
     SocialSharing,
