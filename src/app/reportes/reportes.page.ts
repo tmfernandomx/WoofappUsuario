@@ -40,7 +40,7 @@ async guardarTodo(){
   if(this.reporteID){
     //uppdate
 
-    this.reporteService.updateEvento(this.reporte, this.reporteID).then(() =>{
+    this.reporteService.updateReporte(this.reporte, this.reporteID).then(() =>{
         loading.dismiss();
         this.nav.navigateForward('/selugar');
     });
@@ -49,9 +49,10 @@ async guardarTodo(){
     //add new
 
 
-    this.reporteService.addEvento(this.reporte).then(() =>{
+    this.reporteService.addReporte(this.reporte).then(() =>{
       loading.dismiss();
       this.nav.pop();
+      this.nav.navigateForward('/selugar');
   });
   }
 

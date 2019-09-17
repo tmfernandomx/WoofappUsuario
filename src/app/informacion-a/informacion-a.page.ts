@@ -9,6 +9,9 @@ import { InfoperrosService } from '../servicios/infoperros.service';
 import { NavParams, NavController , LoadingController, AlertController} from '@ionic/angular';
 import { animal } from './../servicios/animalitos.service';
 
+import{Adoptar} from '../models/adoptar.interface'
+import{AdoptarService}from '../servicios/adoptar.service'
+  
 @Component({
   selector: 'app-informacion-a',
   templateUrl: './informacion-a.page.html',
@@ -24,6 +27,20 @@ export class InformacionAPage implements OnInit {
   public dat : any=[];
   datoss:datos[];
 
+  adopcion: Adoptar={
+    nombres: '',
+    apellidos: '',
+    fechanaci:'',
+    correo: '',
+    direccion:'',
+    telefono:'',
+    ciudad:'',
+    estado:'',
+    credencial:'',
+    comdomi:'',
+  }
+  adopcionID=null;
+  
   eventoDatos: datos={
     id: '',
     nombre: '',
@@ -39,6 +56,8 @@ export class InformacionAPage implements OnInit {
   constructor(public authservice: AuthService, public animalitos : AnimalitosService,
     private activateRoute: ActivatedRoute,public navCtrl: NavController,
     private loadingController: LoadingController, 
+    private adopcionservicio: AdoptarService,
+    private nav: NavController,
     private info: InfoperrosService, public alertController: AlertController) { }
 
   ngOnInit() {
@@ -90,6 +109,35 @@ async presentAlert() {
   });
 
   await alert.present();
+}
+
+
+
+async guardarTodo(){
+  const loading=await this.loadingController.create({
+    message:'Guardando....'
+  });
+  await loading.present();
+
+  if(this.adopcionID){
+    //uppdate
+
+    this.adopcionservicio.updateAdoptar(this.adopcion, this.adopcionID).then(() =>{
+        loading.dismiss();
+        this.nav.navigateForward('/selugar');
+    });
+
+  }else{
+    //add new
+
+
+    this.adopcionservicio.addAdoptar(this.adopcion).then(() =>{
+      loading.dismiss();
+      this.nav.pop();
+      this.nav.navigateForward('/selugar');
+  });
+  }
+
 }
 
 }

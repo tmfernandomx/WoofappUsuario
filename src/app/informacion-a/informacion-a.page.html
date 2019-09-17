@@ -115,10 +115,10 @@
 <br>
       <ion-row><!-- 1 nombre-->
         <ion-col size="10">
-            <ion-item>
+            <ion-item *ngIf="adopcion"> 
               <ion-icon name="person" slot="start"></ion-icon>
-             
-              <ion-input  type="text" placeholder="Nombres"></ion-input>
+          
+              <ion-input  type="text" placeholder="Nombres" [(ngModel)]="adopcion.nombres"></ion-input>
             </ion-item>
             
         </ion-col>
@@ -127,20 +127,20 @@
     
       <ion-row><!-- 2 apellidos-->
         <ion-col size="10">
-            <ion-item>
+            <ion-item *ngIf="adopcion">
               <ion-icon name="person" slot="start"></ion-icon>
              
-              <ion-input  type="text" placeholder="Apellidos"></ion-input>
+              <ion-input  type="text" placeholder="Apellidos" [(ngModel)]="adopcion.apellidos"></ion-input>
             </ion-item>
         </ion-col>
         <ion-col size="2"></ion-col> 
       </ion-row>
     
       <ion-row><!--3 fecha de nacimiento-->
-          <ion-col size="10">
+          <ion-col size="10" *ngIf="adopcion">
               <ion-item>
                 <ion-icon name="calendar" slot="start"></ion-icon>
-                <ion-datetime displayFormat="MM-DD-YYYY" placeholder="Fecha de namiento" slot="start"></ion-datetime>
+                <ion-datetime displayFormat="MM-DD-YYYY" placeholder="Fecha de namiento" slot="start" [(ngModel)]="adopcion.fechanaci"></ion-datetime>
               </ion-item> 
           </ion-col>
           <ion-col size="2"> </ion-col>
@@ -148,32 +148,32 @@
     
       <ion-row><!-- 4 correo-->
           <ion-col size="10">
-              <ion-item>
+              <ion-item *ngIf="adopcion">
                 <ion-icon name="mail" slot="start"></ion-icon>
          
-                <ion-input  type="email" placeholder="Correo electronico"></ion-input>
+                <ion-input  type="email" placeholder="Correo electronico" [(ngModel)]="adopcion.correo"></ion-input>
               </ion-item>
           </ion-col>
           <ion-col size="2"></ion-col> 
         </ion-row>
           
           <ion-row><!--5 dirección-->
-              <ion-col size="10">
+              <ion-col size="10" *ngIf="adopcion">
                   <ion-item>
                     <ion-icon name="home" slot="start"></ion-icon>
                     
-                    <ion-input type="text" placeholder="Dirección"></ion-input>
+                    <ion-input type="text" placeholder="Dirección" [(ngModel)]="adopcion.direccion"></ion-input>
                   </ion-item>
               </ion-col>
               <ion-col size="2"></ion-col>
             </ion-row>
     
             <ion-row><!--6 telefono-->
-                <ion-col size="10">
+                <ion-col size="10" *ngIf="adopcion">
                     <ion-item>
                       <ion-icon name="call" slot="start"></ion-icon>
                   
-                      <ion-input type="tel" placeholder="Telefono" ></ion-input>
+                      <ion-input type="tel" placeholder="Telefono" [(ngModel)]="adopcion.telefono"></ion-input>
                     </ion-item>
             </ion-col>
             <ion-col size="2"></ion-col>
@@ -181,10 +181,10 @@
 
       <ion-row><!--7 ciudad-->
         <ion-col size="10">
-            <ion-item>
+            <ion-item *ngIf="adopcion">
               <ion-icon name="planet" slot="start"></ion-icon>
           
-              <ion-input type="text" placeholder="ciudad" ></ion-input>
+              <ion-input type="text" placeholder="ciudad" [(ngModel)]="adopcion.ciudad"></ion-input>
             </ion-item>
     </ion-col>
     <ion-col size="2"></ion-col>
@@ -192,10 +192,10 @@
 
 <ion-row><!--7 estado-->
   <ion-col size="10">
-      <ion-item>
+      <ion-item *ngIf="adopcion">
         <ion-icon name="globe" slot="start"></ion-icon>
     
-        <ion-input type="text" placeholder="estado" ></ion-input>
+        <ion-input type="text" placeholder="estado" [(ngModel)]="adopcion.estado"></ion-input>
       </ion-item>
 </ion-col>
 <ion-col size="2"></ion-col>
@@ -223,7 +223,7 @@
         </ion-col>
         <ion-col size="6">
         
-            <ion-button (click)="presentLoading()" expand="full">enviar</ion-button>
+            <ion-button  (click)="guardarTodo()" expand="full">enviar</ion-button>
       
           </ion-col>
       </ion-row>

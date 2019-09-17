@@ -32,11 +32,11 @@ export class ReporteService {
      return this.reporteCollection.doc<Reportes>(id).valueChanges();
    }
  
-   updateEvento(solicitud: Reportes, id: string) {
+   updateReporte(solicitud: Reportes, id: string) {
      return this.reporteCollection.doc(id).update(solicitud);
    }
  
-   addEvento(solicitud: Reportes) {
+   addReporte(solicitud: Reportes) {
      return this.reporteCollection.add(solicitud);
    }
   
