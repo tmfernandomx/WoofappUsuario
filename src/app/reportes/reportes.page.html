@@ -1,0 +1,68 @@
+<ion-header>
+
+  <ion-toolbar color="primary">
+         
+      <ion-buttons slot="start">
+          <ion-back-button  defaultHref="selugar"></ion-back-button>
+        </ion-buttons>
+        
+
+    <ion-title>reportes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <h1 id="centro">Reporte de Mascotas</h1>
+    <ion-card>
+    <ion-card-content id="centro2">
+    <ion-img src="assets/reporte.png" id="imagen"></ion-img>  <br>
+      Para realizar un reporte, los animales deben de encontrarse en las siguientes situaciones:<br><br>
+    • Maltrato físico.<br>
+    • Situción de abandono.<br>
+    • Daño físico ocacionado por un accidente.<br></ion-card-content></ion-card>
+      <ion-grid fixed><!--inicio de la pantalla-->
+         <ion-row><!-- 1 nombre-->
+          <ion-col size="12">
+              <ion-item *ngIf="reporte">
+                <ion-label>Razon del reporte:</ion-label><br>
+               
+                <ion-input  type="text" placeholder="Ej: Perro atropellado sin atencion" [(ngModel)]="reporte.razon" ></ion-input>
+              </ion-item>
+              
+          </ion-col>
+          <ion-col size="2"></ion-col>
+        </ion-row>
+      
+        <ion-row><!-- 2 apellidos-->
+          <ion-col size="12">
+              <ion-item *ngIf="reporte">
+                <ion-label>Ubicacion:</ion-label><br>
+               
+                <ion-input  type="text" placeholder="Ej: Colonia Manantiales Calle 5 Av. 8" [(ngModel)]="reporte.ubicacion"></ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="2"></ion-col> 
+        </ion-row>
+        <br>
+        <ion-row><!-- 2 domicilio-->
+          <ion-col size="12">
+              <ion-item *ngIf="reporte">
+                <ion-label>Estado físico:</ion-label>
+               
+                <ion-input  type="text" placeholder="Ej: Heridas en una pierna y una pata" [(ngModel)]="reporte.estadofisico"></ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="2"></ion-col> 
+        </ion-row>
+        <ion-row><!-- 2 telefono-->
+          <ion-col size="12">
+              
+                  <ion-button expand="full" color="light"><ion-icon name="image" slot="start"></ion-icon> Adjuntar fotografia</ion-button>
+        
+              
+          </ion-col>
+          <ion-col size="12"><ion-button expand="full" (click)="guardarTodo()">Enviar reporte</ion-button></ion-col> 
+        </ion-row>
+      </ion-grid>
+  </ion-content>
+  

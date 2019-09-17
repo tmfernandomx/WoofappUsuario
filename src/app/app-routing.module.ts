@@ -18,7 +18,9 @@ const routes: Routes = [
   { path: 'tienda', loadChildren: './paginas/tienda/tienda.module#TiendaPageModule' },
   { path: 'informacion-a', loadChildren: './informacion-a/informacion-a.module#InformacionAPageModule' },
   { path: 'informacion-a/:id', loadChildren: './informacion-a/informacion-a.module#InformacionAPageModule' },
-  { path: 'mapav/:id', loadChildren: './mapav/mapav.module#MapavPageModule' }
+  { path: 'mapav/:id', loadChildren: './mapav/mapav.module#MapavPageModule' },
+  { path: 'reportes', loadChildren: './reportes/reportes.module#ReportesPageModule' },
+  { path: 'favoritos', loadChildren: './favoritos/favoritos.module#FavoritosPageModule' }
 
 ];
 
